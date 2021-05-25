@@ -2,11 +2,8 @@ import pygame
 from random import choice
 
 RES = WIDTH, HEIGHT = 1202, 902
-<<<<<<< HEAD
 TILE = 50
-=======
 TILE = 100
->>>>>>> dae403945ad7f1ed8178f435e335e11364bb45fe
 
 cols, rows = WIDTH // TILE, HEIGHT // TILE
 
@@ -22,13 +19,10 @@ class Cell:
         self.walls = {'top': True, 'right': True, 'bottom': True, 'left': True}
         self.visited = False
 
-<<<<<<< HEAD
     def draw_current_cell(self):
         x, y = self.x * TILE, self.y * TILE
         pygame.draw.rect(sc, pygame.Color('saddlebrown'), (x + 2, y + 2, TILE - 2, TILE - 2))
 
-=======
->>>>>>> dae403945ad7f1ed8178f435e335e11364bb45fe
     def draw(self):
         x, y = self.x * TILE, self.y * TILE
         if self.visited:
@@ -43,7 +37,7 @@ class Cell:
         if self.walls['left']:
             pygame.draw.line(sc, pygame.Color('darkorange'), (x, y + TILE), (x, y), 2)
 
-<<<<<<< HEAD
+
     def check_cell(self, x, y):
         # нахождение эл. в одномерном массиве, зная его индекс в двумерном массиве
         find_index = lambda x, y: x + y * cols
@@ -83,16 +77,14 @@ def remove_walls(current, next):
     elif dy == -1:
         current.walls['bottom'] = False
         next.walls['top'] = False
-=======
->>>>>>> dae403945ad7f1ed8178f435e335e11364bb45fe
+
 
 grid_cells = [Cell(col, row) for row in range(rows) for col in range(cols)]
 current_cell = grid_cells[0]
 stack = []
-<<<<<<< HEAD
+
 colors, color = [], 40
-=======
->>>>>>> dae403945ad7f1ed8178f435e335e11364bb45fe
+
 
 while True:
     sc.fill(pygame.Color('darkslategray'))
@@ -101,7 +93,7 @@ while True:
         if event.type == pygame.QUIT:
             exit()
     [cell.draw() for cell in grid_cells]
-<<<<<<< HEAD
+
     current_cell.visited = True
     [pygame.draw.rect(sc, colors[i], (cell.x * TILE + 5, cell.y * TILE +5,
                                       TILE - 10, TILE -10),border_radius=12) for i, cell in enumerate(stack)]
@@ -116,8 +108,7 @@ while True:
         current_cell = next_cell
     elif stack:
         current_cell = stack.pop()
-=======
->>>>>>> dae403945ad7f1ed8178f435e335e11364bb45fe
+
     # обновление всего содержимого дисплея
     pygame.display.flip()
     # число итераций(кадров) в секунду
